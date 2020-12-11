@@ -1,0 +1,42 @@
+<body>
+  <!-- <img src=".\assets\libimage.jpg" alt="Los Angeles" draggable="false" style="width:100%; height:700px"> -->
+<div class="container">
+  <button type="submit" class="btn btn-primary" (click)="logout()">Logout</button>
+  <h1>Available Books</h1>
+  <nav class="navbar">
+     <!-- <input class="form-control" type="text" name="id" [(ngModel)]="id"
+     (ngModelChange)="Search()" placeholder="Enter Book ID to search">-->
+ 
+     <input class="form-control"  type="text" name="Book_title" [(ngModel)]="Book_title" 
+     (ngModelChange)="Search()" placeholder="Enter Book title to search">
+ </nav>
+ 
+   <table class="table table-bordered" > 
+     <thead>
+      <tr>
+        <th style = "font-size: 30px;">id</th>
+        <th style = "font-size: 30px;">Book_title</th>
+        <th style = "font-size: 30px;">Book_auther</th>
+        <th style = "font-size: 30px;">NumberOfBooks</th>
+      </tr>
+    </thead> 
+       <tbody>
+      <tr *ngFor= "let user of users">
+        <td style = "font-size: 20px;">{{user.id}}</td>
+        <td style = "font-size: 20px;">{{user.Book_title}}</td>
+        <td style = "font-size: 20px;">{{user.Book_auther}}</td>
+        <td style = "font-size: 20px;">{{user.NumberOfBooks}}</td>
+        <td>
+         <button type="button" class="btn btn-danger" (click)="deleteRow(user.id)">Delete</button>&nbsp;&nbsp;
+         <button type="button" class="btn btn-primary" (click)="update(user.id)">Update</button>&nbsp;&nbsp;
+         <button type="button" class="btn btn-secondary" (click)="add(user)">Add</button>
+         <button type="button" class="btn btn-primary" (click)="get(user.id)">Get Book</button>
+        </td>
+      </tr>
+    </tbody>    
+  </table>
+  
+ </div>
+ 
+</body>
+ 
